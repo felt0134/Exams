@@ -15,6 +15,11 @@ library(gradethis)
 library(tutorial.helpers)
 knitr::opts_chunk$set(echo = FALSE)
 
+#play around with the answer_fn
+# answer_fn_silent <- function(submitted) {
+#   list(message = NULL, correct = TRUE)  # No feedback
+# }
+
 gradethis::gradethis_setup(
   code_correct = "Submitted",
   code_incorrect = "Submitted",
@@ -32,6 +37,8 @@ gradethis::gradethis_setup(
 ### This test will be 71 points and will be taken within this R tutorial. The test will be a mix of  free response and writing R code in response to prompts, much like you have been doing the past two weeks. You will submit the exam as .html file on D2L, just as you hjave been doing the past three weeks. You will be graded on correctness for every answer and partial credit will be given when warranted.
 
 ## Q's 1-9:Free Response (18 points: 2 points each)
+
+`Please note that your submissions in this section will be confirmed in the color green`. *This does not mean an answer is right or wrong*
 
 ```{r problem_1}
 
@@ -171,6 +178,8 @@ gradethis::gradethis_setup(
 
 ## Q's 10-16: Coding (53 points total)
 
+`Please note that your submissions in this section will be confirmed in the color red`. *This does not mean an answer is right or wrong*
+
 ### Q10: Create a numeric vector from 1 to 1000 that increases by values of 5. Name this vector "vector_1". (5 points)
 
 ```{r problem_10, exercise=TRUE,exercise.reveal_solution=FALSE}
@@ -184,6 +193,8 @@ vector_1 <- seq(from = 1,to = 1000,by = 5)
 ```{r problem_10-check}
 grade_this_code()
 ```
+
+
 ### Q11: Use recycling to reduce every value in vector_1 by 50%. Name this new vector "vector_1_halved". Then, create an x-y plot with vector_1 on the x axis and vector_1_halved on the y axis. (10 points)
 
 
@@ -197,7 +208,7 @@ plot(x = vector_1,y = vector_1_halved)
 ```
 
 ```{r problem_11-check}
-grade_result(default_message = "submitted")
+grade_this_code()
 ```
 
 
@@ -216,7 +227,7 @@ NPP <- data.frame(
 ```
 
 ```{r problem_12-check}
-grade_code()
+grade_this_code()
 ```
 
 ### Q13: Use an extraction operator to preview the first row of the NPP dataframe you created in Q17 (while retaining all column names). (2 points)
@@ -231,7 +242,7 @@ NPP[1,]
 ```
 
 ```{r problem_13-check}
-grade_code()
+grade_this_code()
 ```
 
 ### Q14: Use an extraction operator to add a new column to the NPP dataframe called 'RUE' that is calculated as production divided by precipitation. This variable describes how efficiently rainfall is used for plant growth. (5 points)
@@ -245,7 +256,7 @@ NPP$RUE <- NPP$Production/NPP$Precipitation
 ```
 
 ```{r problem_14-check}
-grade_code()
+grade_this_code()
 ```
 
 ### Q15: Using the NPP dataframe, create an x-y plot that depicts how RUE changes as a response to precipitation. You can use *either* of the two approaches (but, within the same function!) to do this that were discussed in class. (5 points)
@@ -260,7 +271,7 @@ plot(RUE ~ Precipitation,data = NPP,)
 ```
 
 ```{r problem_15-check}
-grade_code()
+grade_this_code()
 ```
 
 ### Q16: Use the `data()` function to load in the iris dataframe that comes with R and then use both extraction and comparison operators to filter the iris dataframe to *just* the setosa species. Name this new dataframe iris_setosa. (6 points)
@@ -274,7 +285,7 @@ iris_setosa <- iris[iris$Species == 'setosa',]
 ```
 
 ```{r problem_16-check}
-grade_code()
+grade_this_code()
 ```
 
 ```{r download-answers, child = system.file("child_documents/download_answers.Rmd", package = "tutorial.helpers")}
